@@ -1,4 +1,5 @@
 import GenreFilter from "@/components/GenreFilter";
+import LoadMoreButton from "@/components/LoadMoreButton";
 import { GamesResponse } from "@/types/game";
 import Image from "next/image";
 
@@ -12,9 +13,7 @@ async function getGames(
 
   const baseUrl = process.env.API_BASE_URL ?? "http://localhost:3000";
 
-  const res = await fetch(`${baseUrl}/api/games?${params}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${baseUrl}/api/games?${params}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch games");
@@ -54,6 +53,8 @@ export default async function HomePage({
           </div>
         ))}
       </div>
+
+      <LoadMoreButton currentPage={currentPage} totalPages={totalPages} />
     </main>
   );
 }
