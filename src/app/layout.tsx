@@ -18,11 +18,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen`}>
         <header>
-          <h1>Game catalog</h1>
+          <div className="px-32 py-5 flex bg-surface-secondary">
+            <span className="mr-auto font-bold font-lg text-neutral-700">
+              GamerShop
+            </span>
+            <Link href="/cart">
+              <Image
+                src={"/icons/cart.svg"}
+                width={24}
+                height={24}
+                alt="Cart"
+              />
+            </Link>
+          </div>
         </header>
-        <main className="p-6">{children}</main>
+        <main className="px-32 py-5">{children}</main>
         <footer className="bg-neutral-700 px-32 py-16 flex items-center justify-center">
           <Link href="/">
             <Image
