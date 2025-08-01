@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Game } from "@/utils/endpoint";
 import Image from "next/image";
 import CartItem from "@/components/CartItem";
+import Link from "next/link";
 
 export default function CartPage() {
   const [cartItems, setCartItems] = useState<Game[]>([]);
@@ -24,36 +25,42 @@ export default function CartPage() {
 
   return (
     <>
-      <h1 className="text-2xl font-bold">Your Cart</h1>
-      <p className="mb-4">
-        <span className="font-semibold">{cartItems.length} items</span>
-      </p>
+      <Link href="/" className="flex items-center text-primary">
+        <Image
+          src={"/icons/arrow-left.svg"}
+          width={24}
+          height={24}
+          alt="Back"
+        />
+        <span>Back to catalog</span>
+      </Link>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="md:col-span-2 space-y-4">
+      <h1 className="text-2xl font-bold mt-8">Your Cart</h1>
+      <div className="mb-4 text-lg">
+        <span>{cartItems.length} items</span>
+      </div>
+
+      <div className="md:flex">
+        <div className="basis-7/12 md:mr-4">
           {cartItems.map((item) => (
             <CartItem key={item.id} item={item} onRemove={removeFromCart} />
           ))}
         </div>
 
-        {/* Order Summary */}
-        <div className="border p-4 rounded shadow-sm bg-gray-50 h-fit">
-          <h2 className="text-lg font-bold mb-4">Order Summary</h2>
-          <p className="mb-2">
-            <span className="font-semibold">{cartItems.length} items</span>
+        <div className="basis-5/12 border p-4 rounded-lg border border-cta-stroke-primary h-fit text-primary">
+          <h2 className="text-lg font-bold">Order Summary</h2>
+          <p className="mb-6">
+            <span>{cartItems.length} items</span>
           </p>
           {cartItems.map((item) => (
-            <div
-              key={item.id}
-              className="flex justify-between text-sm text-gray-700"
-            >
+            <div key={item.id} className="flex justify-between text-sm mb-2">
               <span>{item.name}</span>
               <span>${item.price.toFixed(2)}</span>
             </div>
           ))}
           <hr className="my-3" />
           <div className="flex justify-between font-bold text-md">
-            <span>Total</span>
+            <span>Order Total</span>
             <span>${total.toFixed(2)}</span>
           </div>
 

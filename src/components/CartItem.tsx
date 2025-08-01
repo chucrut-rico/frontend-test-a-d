@@ -10,35 +10,44 @@ interface CartItemProps {
 
 export default function CartItem({ item, onRemove }: CartItemProps) {
   return (
-    <div className="flex gap-4 border p-4 rounded relative bg-white shadow-sm">
+    <div className="px-4 md:px-6 py-7 pr-10 md:pr-6 flex flex-col gap-2 relative border-b border-cta-stroke-primary last:border-b-0">
       <button
         onClick={() => onRemove(item.id)}
-        className="absolute top-2 right-2 text-sm text-red-600 font-bold"
+        className="absolute top-6 md:top-7 right-2 text-sm text-red-600 font-bold"
         aria-label="Remove from cart"
       >
-        X
+        <Image src={"/icons/close.svg"} width={24} height={24} alt="Remove" />
       </button>
 
-      <Image
-        src={item.image}
-        alt={item.name}
-        width={100}
-        height={100}
-        className="rounded"
-      />
+      {item.isNew && (
+        <span className="text-xs px-2 py-1.5 bg-stone-100 absolute top-8 left-8">
+          New
+        </span>
+      )}
 
-      <div>
-        <div className="text-sm text-gray-600 font-semibold">
-          {item.genre}
-          {item.isNew && (
-            <span className="ml-2 text-xs text-green-600 font-bold border border-green-600 px-1 py-0.5 rounded">
-              New
-            </span>
-          )}
+      <div className="md:flex">
+        <div className="basis-2/6 md:w-4/12 aspect-[16/9] flex-none overflow-hidden mb-2 md:mr-4">
+          <Image
+            width={300}
+            height={200}
+            className="object-cover w-full h-full"
+            src={item.image}
+            alt={item.name}
+          />
         </div>
-        <h2 className="font-bold text-lg">{item.name}</h2>
-        <p className="text-sm text-gray-700 mb-1">{item.description}</p>
-        <p className="text-md font-semibold">${item.price.toFixed(2)}</p>
+
+        <div className="relative pb-10">
+          <div className="font-medium uppercase text-stroke-secondary">
+            {item.genre}
+          </div>
+          <div>
+            <div className="font-medium text-xl my-2">{item.name}</div>
+            <div className="text-neutral-500">{item.description}</div>
+            <div className="font-semibold absolute -right-6 md:right-0 bottom-0">
+              ${item.price}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

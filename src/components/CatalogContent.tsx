@@ -38,7 +38,7 @@ export default function CatalogContent({
   return (
     <CatalogLoader isLoading={isLoading}>
       <div className="py-6 md:py-8">
-        <h1 className="text-xl md:text-3xl font-bold text-cta-stroke-primary mb-4">
+        <h1 className="text-xl md:text-3xl font-bold text-primary mb-4">
           Top Sellers
         </h1>
 

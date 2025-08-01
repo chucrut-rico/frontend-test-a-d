@@ -61,7 +61,7 @@ export default function GameCard({ game }: GameCardProps) {
 
       <button
         onClick={handleToggleCart}
-        className={`mt-auto px-3 py-3 uppercase rounded-lg border border-cta-stroke-primary text-cta-stroke-primary font-semibold`}
+        className={`mt-auto px-3 py-3 uppercase rounded-lg border border-cta-stroke-primary text-primary font-semibold`}
       >
         {inCart ? "Remove" : "Add to Cart"}
       </button>
