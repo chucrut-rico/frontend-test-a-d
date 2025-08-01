@@ -1,3 +1,4 @@
+import GameCard from "@/components/GameCard";
 import GenreFilter from "@/components/GenreFilter";
 import LoadMoreButton from "@/components/LoadMoreButton";
 import { GamesResponse } from "@/types/game";
@@ -43,14 +44,7 @@ export default async function HomePage({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {games.map((game) => (
-          <div key={game.id} className="border p-4 rounded shadow-sm">
-            <Image width={100} height={100} src={game.image} alt={game.name} />
-            <h2 className="text-lg font-semibold">{game.name}</h2>
-            <p className="text-sm text-gray-600 mb-1">{game.genre}</p>
-            <p className="text-sm">{game.description}</p>
-            <p className="font-semibold mt-2">${game.price}</p>
-            {game.isNew && <span className="text-green-600 text-xs">New</span>}
-          </div>
+          <GameCard key={game.id} game={game} />
         ))}
       </div>
 
