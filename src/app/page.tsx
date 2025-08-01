@@ -1,12 +1,6 @@
-import { Game } from "@/utils/endpoint";
+import GenreFilter from "@/components/GenreFilter";
+import { GamesResponse } from "@/types/game";
 import Image from "next/image";
-
-interface GamesResponse {
-  games: Game[];
-  availableFilters: string[];
-  totalPages: number;
-  currentPage: number;
-}
 
 async function getGames(
   genre: string | null,
@@ -45,6 +39,8 @@ export default async function HomePage({
   return (
     <main className="p-6">
       <h1 className="text-2xl font-bold mb-4">Game Catalog</h1>
+
+      <GenreFilter selected={genre} filters={availableFilters} />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {games.map((game) => (
