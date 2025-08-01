@@ -14,9 +14,7 @@ export default function CatalogLoader({
   if (isLoading) {
     return (
       <div className="p-6 text-center">
-        <p className="text-lg text-gray-700 animate-pulse">
-          Loading catalog...
-        </p>
+        <p className="text-lg text-gray-700 animate-pulse">Loading games...</p>
       </div>
     );
   }

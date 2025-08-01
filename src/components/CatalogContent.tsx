@@ -27,12 +27,10 @@ export default function CatalogContent({
   const [isLoading, setIsLoading] = useState(false);
   const loadingKey = `${genre ?? "all"}-${page}`;
 
-  // Cuando loadingKey cambia, significa que la data nueva ya llegó, quitamos loading
   useEffect(() => {
     setIsLoading(false);
   }, [loadingKey]);
 
-  // Función para activar loading antes de cambiar ruta
   function handleNavigateStart() {
     setIsLoading(true);
   }

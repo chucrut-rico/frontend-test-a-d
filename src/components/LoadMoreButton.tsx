@@ -25,7 +25,7 @@ export default function LoadMoreButton({
     const newParams = new URLSearchParams(searchParams.toString());
     newParams.set("page", newPage.toString());
 
-    onNavigateStart(); // <-- activamos loading antes de navegar
+    onNavigateStart();
 
     startTransition(() => {
       router.push(`/?${newParams.toString()}`);

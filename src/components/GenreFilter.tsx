@@ -31,7 +31,7 @@ export default function GenreFilter({
       newParams.set("page", "1");
     }
 
-    onNavigateStart(); // <-- activamos loading antes de navegar
+    onNavigateStart();
 
     startTransition(() => {
       router.push(`/?${newParams.toString()}`);
