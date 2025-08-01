@@ -1,13 +1,11 @@
 "use client";
 
 interface CatalogLoaderProps {
-  loadingKey: string;
   isLoading: boolean;
   children: React.ReactNode;
 }
 
 export default function CatalogLoader({
-  loadingKey,
   isLoading,
   children,
 }: CatalogLoaderProps) {

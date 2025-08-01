@@ -36,12 +36,18 @@ export default function CatalogContent({
   }
 
   return (
-    <CatalogLoader loadingKey={loadingKey} isLoading={isLoading}>
-      <GenreFilter
-        selected={genre}
-        filters={availableFilters}
-        onNavigateStart={handleNavigateStart}
-      />
+    <CatalogLoader isLoading={isLoading}>
+      <div className="py-6 md:py-8">
+        <h1 className="text-xl md:text-3xl font-bold text-cta-stroke-primary mb-4">
+          Top Sellers
+        </h1>
+
+        <GenreFilter
+          selected={genre}
+          filters={availableFilters}
+          onNavigateStart={handleNavigateStart}
+        />
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
         {games.map((game) => (

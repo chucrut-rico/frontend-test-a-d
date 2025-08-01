@@ -39,24 +39,26 @@ export default function GenreFilter({
   }
 
   return (
-    <div className="inline-flex items-center">
-      <label htmlFor="genre" className="inline-block font-medium mr-2">
-        Genre |
-      </label>
-      <select
-        id="genre"
-        value={selected ?? "all"}
-        onChange={onChange}
-        disabled={isPending}
-        className="border p-2 rounded"
-      >
-        <option value="all">All</option>
-        {filters.map((filter) => (
-          <option key={filter} value={filter}>
-            {filter}
-          </option>
-        ))}
-      </select>
+    <div className="w-full md:w-auto md:flex md:justify-end">
+      <div className="inline-flex items-center">
+        <label htmlFor="genre" className="inline-block font-medium mr-2">
+          Genre |
+        </label>
+        <select
+          id="genre"
+          value={selected ?? "all"}
+          onChange={onChange}
+          disabled={isPending}
+          className="border p-2 rounded"
+        >
+          <option value="all">All</option>
+          {filters.map((filter) => (
+            <option key={filter} value={filter}>
+              {filter}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 }
