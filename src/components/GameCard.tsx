@@ -34,7 +34,11 @@ export default function GameCard({ game }: GameCardProps) {
   };
 
   return (
-    <div className="border p-4 rounded shadow-sm flex flex-col gap-2">
+    <div className="border p-4 rounded shadow-sm flex flex-col gap-2 relative">
+      {game.isNew && (
+        <span className="text-xs px-1 py-0.5 bg-gray-100 absolute">New</span>
+      )}
+
       <Image width={100} height={100} src={game.image} alt={game.name} />
 
       <div className="font-semibold text-gray-600">{game.genre}</div>
