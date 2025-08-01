@@ -50,7 +50,7 @@ export default function GenreFilter({
         disabled={isPending}
         className="border p-2 rounded"
       >
-        <option value="all">All genres</option>
+        <option value="all">All</option>
         {filters.map((filter) => (
           <option key={filter} value={filter}>
             {filter}
