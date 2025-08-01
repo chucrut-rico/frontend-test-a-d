@@ -1,47 +1,52 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { useTransition } from "react";
 
 interface GenreFilterProps {
-  filters: string[];
   selected: string | null;
+  filters: string[];
 }
 
-export default function GenreFilter({ filters, selected }: GenreFilterProps) {
+export default function GenreFilter({ selected, filters }: GenreFilterProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [isPending, startTransition] = useTransition();
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const params = new URLSearchParams(searchParams.toString());
-    const value = e.target.value;
+  function onChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const genre = e.target.value;
 
-    if (value) {
-      params.set("genre", value);
+    const newParams = new URLSearchParams(searchParams.toString());
+
+    if (genre === "all") {
+      newParams.delete("genre");
+      newParams.set("page", "1");
     } else {
-      params.delete("genre");
+      newParams.set("genre", genre);
+      newParams.set("page", "1");
     }
 
-    params.set("page", "1");
-
-    router.push(`/?${params.toString()}`);
-  };
+    startTransition(() => {
+      router.push(`/?${newParams.toString()}`);
+    });
+  }
 
   return (
-    <div className="mb-4">
+    <div className="inline-flex items-center">
       <label htmlFor="genre" className="inline-block font-medium mr-2">
         Genre |
       </label>
       <select
         id="genre"
-        name="genre"
-        value={selected ?? ""}
-        onChange={handleChange}
-        className="border px-3 py-2 rounded w-full max-w-xs"
+        value={selected ?? "all"}
+        onChange={onChange}
+        disabled={isPending}
+        className="border p-2 rounded"
       >
-        <option value="">All genres</option>
-        {filters.map((genre) => (
-          <option key={genre} value={genre}>
-            {genre}
+        <option value="all">All genres</option>
+        {filters.map((filter) => (
+          <option key={filter} value={filter}>
+            {filter}
           </option>
         ))}
       </select>
