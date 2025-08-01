@@ -21,9 +21,11 @@ export default function RootLayout({
       <body className={`${inter.className} min-h-screen flex flex-col`}>
         <header>
           <div className="px-6 md:px-32 py-5 flex bg-surface-secondary">
-            <span className="mr-auto font-bold font-lg text-neutral-700">
-              GamerShop
-            </span>
+            <Link className="mr-auto" href="/">
+              <span className="font-bold font-lg text-neutral-700">
+                GamerShop
+              </span>
+            </Link>
             <Link href="/cart">
               <Image
                 src={"/icons/cart.svg"}
@@ -35,7 +37,7 @@ export default function RootLayout({
           </div>
         </header>
         <main className="px-6 md:px-32 py-5">{children}</main>
-        <footer className="bg-neutral-700 px-32 py-16 flex items-center justify-center mt-auto">
+        <footer className="bg-neutral-700 px-6 md:px-32 py-16 flex items-center justify-center mt-auto">
           <Link href="/">
             <Image
               src={"/icons/ap-logo.svg"}
