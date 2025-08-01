@@ -34,22 +34,34 @@ export default function GameCard({ game }: GameCardProps) {
   };
 
   return (
-    <div className="border p-4 rounded shadow-sm flex flex-col gap-2 relative">
+    <div className="rounded-xl border border-stroke-secondary px-6 py-5 flex flex-col gap-2 relative">
       {game.isNew && (
-        <span className="text-xs px-1 py-0.5 bg-gray-100 absolute">New</span>
+        <span className="text-xs px-2 py-1.5 bg-stone-100 absolute top-8 left-8">
+          New
+        </span>
       )}
 
-      <Image width={100} height={100} src={game.image} alt={game.name} />
+      <div className="aspect-[4/3] overflow-hidden rounded-t-xl">
+        <Image
+          width={300}
+          height={200}
+          className="object-cover w-full h-full"
+          src={game.image}
+          alt={game.name}
+        />
+      </div>
 
-      <div className="font-semibold text-gray-600">{game.genre}</div>
-      <div className="font-semibold">{game.name}</div>
-      <p className="font-semibold">${game.price}</p>
+      <div className="font-medium uppercase text-stroke-secondary">
+        {game.genre}
+      </div>
+      <div className="flex items-start justify-between w-full pb-4">
+        <div className="font-medium">{game.name}</div>
+        <div className="font-semibold ml-2">${game.price}</div>
+      </div>
 
       <button
         onClick={handleToggleCart}
-        className={`mt-2 px-3 py-1 text-sm rounded 
-          ${inCart ? "bg-red-600 hover:bg-red-700 text-white" : ""} 
-          `}
+        className={`mt-auto px-3 py-3 uppercase rounded-lg border border-cta-stroke-primary text-cta-stroke-primary font-semibold`}
       >
         {inCart ? "Remove" : "Add to Cart"}
       </button>

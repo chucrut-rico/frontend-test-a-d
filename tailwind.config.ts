@@ -10,7 +10,9 @@ const config: Config = {
     extend: {
       colors: {
         "cta-fill-primary": "#585660",
+        "cta-stroke-primary": "#3B3B3B",
         "surface-secondary": "#EEEEEE",
+        "stroke-secondary": "#8F8F8F",
         white: "#ffffff",
       },
       backgroundImage: {
