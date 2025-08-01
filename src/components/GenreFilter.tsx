@@ -6,9 +6,14 @@ import { useTransition } from "react";
 interface GenreFilterProps {
   selected: string | null;
   filters: string[];
+  onNavigateStart: () => void;
 }
 
-export default function GenreFilter({ selected, filters }: GenreFilterProps) {
+export default function GenreFilter({
+  selected,
+  filters,
+  onNavigateStart,
+}: GenreFilterProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
@@ -25,6 +30,8 @@ export default function GenreFilter({ selected, filters }: GenreFilterProps) {
       newParams.set("genre", genre);
       newParams.set("page", "1");
     }
+
+    onNavigateStart(); // <-- activamos loading antes de navegar
 
     startTransition(() => {
       router.push(`/?${newParams.toString()}`);
