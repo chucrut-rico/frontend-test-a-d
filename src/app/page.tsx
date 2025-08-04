@@ -1,24 +1,5 @@
 import CatalogContent from "@/components/CatalogContent";
-import { GamesResponse } from "@/types/game";
-
-async function getGames(
-  genre: string | null,
-  page: number
-): Promise<GamesResponse> {
-  const params = new URLSearchParams();
-  if (genre) params.append("genre", genre);
-  params.append("page", page.toString());
-
-  const baseUrl = process.env.API_BASE_URL ?? "http://localhost:3000";
-
-  const res = await fetch(`${baseUrl}/api/games?${params}`);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch games");
-  }
-
-  return res.json();
-}
+import { getGames } from "@/services/games";
 
 export default async function HomePage({
   searchParams,
