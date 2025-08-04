@@ -10,7 +10,7 @@ interface CartItemProps {
 
 export default function CartItem({ item, onRemove }: CartItemProps) {
   return (
-    <div className="px-4 md:px-6 py-7 pr-10 md:pr-6 flex flex-col gap-2 relative border-b border-cta-stroke-primary last:border-b-0">
+    <div className="px-4 md:px-6 py-7 pr-10 md:pr-6 flex flex-col gap-2 relative border-b border-stroke-secondary last:border-b-0">
       <button
         onClick={() => onRemove(item.id)}
         className="absolute top-6 md:top-7 right-2"

@@ -47,7 +47,7 @@ export default function CartPage() {
           ))}
         </div>
 
-        <div className="basis-5/12 border p-4 rounded-lg border border-cta-stroke-primary h-fit">
+        <div className="basis-5/12 border p-4 rounded-lg border border-stroke-secondary h-fit">
           <h2 className="text-lg font-bold">Order Summary</h2>
           <p className="mb-6">
             <span>{cartItems.length} items</span>
