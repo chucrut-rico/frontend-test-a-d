@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Game } from "@/utils/endpoint";
 import Image from "next/image";
 import CartItem from "@/components/CartItem";
-import Link from "next/link";
+import CleanLinkToHome from "@/components/CleanLinkToHome";
 
 export default function CartPage() {
   const [cartItems, setCartItems] = useState<Game[]>([]);
@@ -25,7 +25,7 @@ export default function CartPage() {
 
   return (
     <>
-      <Link href="/" className="flex items-center text-primary">
+      <CleanLinkToHome className="flex items-center text-primary">
         <Image
           src={"/icons/arrow-left.svg"}
           width={24}
@@ -33,7 +33,7 @@ export default function CartPage() {
           alt="Back"
         />
         <span>Back to catalog</span>
-      </Link>
+      </CleanLinkToHome>
 
       <h1 className="text-2xl font-bold mt-8">Your Cart</h1>
       <div className="mb-4 text-lg">
