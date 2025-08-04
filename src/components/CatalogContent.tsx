@@ -5,7 +5,8 @@ import GenreFilter from "./GenreFilter";
 import GameCard from "./GameCard";
 import LoadMoreButton from "./LoadMoreButton";
 import { Game } from "@/utils/endpoint";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useCatalogLoading } from "@/contexts/CatalogLoadingContext";
 
 interface CatalogContentProps {
   genre: string | null;
@@ -24,15 +25,15 @@ export default function CatalogContent({
   totalPages,
   currentPage,
 }: CatalogContentProps) {
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, setLoading } = useCatalogLoading();
   const loadingKey = `${genre ?? "all"}-${page}`;
 
   useEffect(() => {
-    setIsLoading(false);
+    setLoading(false);
   }, [loadingKey]);
 
   function handleNavigateStart() {
-    setIsLoading(true);
+    setLoading(true);
   }
 
   return (
