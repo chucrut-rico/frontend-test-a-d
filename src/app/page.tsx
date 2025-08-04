@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import CatalogContent from "@/components/CatalogContent";
 import { getGames } from "@/services/games";
 
