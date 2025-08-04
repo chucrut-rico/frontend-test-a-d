@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Game } from "@/utils/endpoint";
 import Image from "next/image";
 import CartItem from "@/components/CartItem";
@@ -25,17 +25,15 @@ export default function CartPage() {
 
   return (
     <>
-      <Suspense fallback={null}>
-        <CleanLinkToHome className="flex items-center text-primary">
-          <Image
-            src={"/icons/arrow-left.svg"}
-            width={24}
-            height={24}
-            alt="Back"
-          />
-          <span>Back to catalog</span>
-        </CleanLinkToHome>
-      </Suspense>
+      <CleanLinkToHome className="flex items-center text-primary">
+        <Image
+          src={"/icons/arrow-left.svg"}
+          width={24}
+          height={24}
+          alt="Back"
+        />
+        <span>Back to catalog</span>
+      </CleanLinkToHome>
 
       <h1 className="text-2xl font-bold mt-8">Your Cart</h1>
       <div className="mb-4 text-lg">
