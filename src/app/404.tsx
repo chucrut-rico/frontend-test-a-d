@@ -1,5 +1,8 @@
 import { Suspense } from "react";
-import CleanLinkToHome from "@/components/CleanLinkToHome";
+import dynamic from "next/dynamic";
+const CleanLinkToHome = dynamic(() => import("@/components/CleanLinkToHome"), {
+  ssr: false,
+});
 
 export default function NotFoundPage() {
   return (

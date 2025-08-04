@@ -2,7 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import CleanLinkToHome from "./CleanLinkToHome";
+import dynamic from "next/dynamic";
+const CleanLinkToHome = dynamic(() => import("@/components/CleanLinkToHome"), {
+  ssr: false,
+});
 
 export default function LayoutHeader() {
   return (

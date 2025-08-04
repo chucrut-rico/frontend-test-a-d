@@ -1,7 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import CleanLinkToHome from "./CleanLinkToHome";
+import dynamic from "next/dynamic";
+const CleanLinkToHome = dynamic(() => import("@/components/CleanLinkToHome"), {
+  ssr: false,
+});
 
 export default function LayoutFooter() {
   return (

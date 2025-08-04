@@ -4,7 +4,10 @@ import { useEffect, useState } from "react";
 import { Game } from "@/utils/endpoint";
 import Image from "next/image";
 import CartItem from "@/components/CartItem";
-import CleanLinkToHome from "@/components/CleanLinkToHome";
+import dynamic from "next/dynamic";
+const CleanLinkToHome = dynamic(() => import("@/components/CleanLinkToHome"), {
+  ssr: false,
+});
 
 export default function CartPage() {
   const [cartItems, setCartItems] = useState<Game[]>([]);
