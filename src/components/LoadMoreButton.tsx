@@ -35,6 +35,7 @@ export default function LoadMoreButton({
   return (
     <div className="mt-6">
       <button
+        role="button"
         onClick={onClick}
         disabled={isPending}
         className={`w-full md:w-auto mt-2 px-6 py-3 uppercase rounded-lg border bg-cta-fill-primary text-white font-semibold`}
