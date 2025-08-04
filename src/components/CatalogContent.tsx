@@ -30,7 +30,7 @@ export default function CatalogContent({
 
   useEffect(() => {
     setLoading(false);
-  }, [loadingKey]);
+  }, [loadingKey, setLoading]);
 
   function handleNavigateStart() {
     setLoading(true);
