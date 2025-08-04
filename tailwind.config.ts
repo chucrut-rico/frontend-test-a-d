@@ -13,6 +13,7 @@ const config: Config = {
         primary: "#3B3B3B",
         "cta-stroke-primary": "#3B3B3B",
         "surface-secondary": "#EEEEEE",
+        secondary: "#8F8F8F",
         "stroke-secondary": "#8F8F8F",
         white: "#ffffff",
       },

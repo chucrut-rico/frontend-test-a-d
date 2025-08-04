@@ -36,7 +36,7 @@ export default function GameCard({ game }: GameCardProps) {
   return (
     <div className="rounded-xl border border-stroke-secondary px-6 py-5 flex flex-col gap-2 relative">
       {game.isNew && (
-        <span className="text-xs px-2 py-1.5 bg-stone-100 absolute top-8 left-8">
+        <span className="text-xs px-2 py-1.5 bg-stone-100 absolute top-8 left-8 rounded">
           New
         </span>
       )}
@@ -51,17 +51,15 @@ export default function GameCard({ game }: GameCardProps) {
         />
       </div>
 
-      <div className="font-medium uppercase text-stroke-secondary">
-        {game.genre}
-      </div>
-      <div className="flex items-start justify-between w-full pb-4">
+      <div className="font-medium uppercase text-secondary">{game.genre}</div>
+      <div className="flex items-start justify-between w-full pb-1">
         <div className="font-medium">{game.name}</div>
         <div className="font-semibold ml-2">${game.price}</div>
       </div>
 
       <button
         onClick={handleToggleCart}
-        className={`mt-auto px-3 py-3 uppercase rounded-lg border border-cta-stroke-primary text-primary font-semibold`}
+        className={`mt-auto px-3 py-3 uppercase rounded-lg border border-cta-stroke-primary font-semibold`}
       >
         {inCart ? "Remove" : "Add to Cart"}
       </button>

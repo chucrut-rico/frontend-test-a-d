@@ -18,13 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+      <body
+        className={`${inter.className} min-h-screen flex flex-col text-primary`}
+      >
         <header>
           <div className="px-6 md:px-32 py-5 flex bg-surface-secondary">
             <Link className="mr-auto" href="/">
-              <span className="font-bold font-lg text-neutral-700">
-                GamerShop
-              </span>
+              <span className="font-bold font-lg">GamerShop</span>
             </Link>
             <Link href="/cart">
               <Image
